@@ -1,11 +1,12 @@
-def sol(n):
-    if n == 0:
-        return('-')
-    return(sol(n-1) + ' ' * pow(3,(n-1)) + sol(n-1))
+ans = ['' for _ in range(13)]
+ans[0] = '-'
+
+for i in range(1, 13):
+	ans[i] = ans[i-1] + (' ' * (3 ** (i-1))) + ans[i-1]
 
 while True:
-    try:
-        N = int(input())
-        print(sol(N))
-    except:
-        break
+	try:
+		N = int(input())
+		print(ans[N])
+	except:
+		break
