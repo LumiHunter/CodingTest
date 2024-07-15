@@ -1,28 +1,19 @@
-def comb(idx, lev):
-	global choose, arr, k
-
-	# base case
-	if lev == 6:
-		for u in choose:
-			print(u, end=' ')
-		print()
-		return
-
-	# recursive case
-	for i in range(idx, k):
-		choose.append(arr[i])
-		comb(i + 1, lev + 1)
-		choose.pop()
-
+def comb(index, level):
+    global choose, lst, k
+    if level == 6:
+        print(' '.join(choose))
+        return
+    for i in range(index, k):
+        choose.append(lst[i])
+        comb(i+1, level+1)
+        choose.pop()
 
 while True:
-	choose = []
-	I = list(map(int, input().split()))
-
-	k = I[0]
-	arr = I[1:]
-	if k == 0:
-		break
-
-	comb(0, 0)
-	print()
+    case = input().split()
+    if len(case) == 1:
+        break
+    k = int(case[0])
+    choose = []
+    lst = case[1:]
+    comb(0,0)
+    print()
